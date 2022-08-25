@@ -4,175 +4,251 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | Single Price Grid Component</title>
+  <title>Frontend Mentor | Product preview card component</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
-
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      font-family: 'Karla', sans-serif;
-      font-size: 16px;
-      background-color: hsl(204, 43%, 93%);
-    }
-    h1 {
-      font-size: 1.3em;
-      color: hsl(179, 62%, 43%)
-    }
-    h2 {
-      font-size: 1em;
-      color: hsl(71, 73%, 54%);
-    }
-    h3 {
-      font-size: 1em;
-      font-weight: 700;
-      color: rgb(255, 255, 255);
-    }
-    .mainGrid {
-      display: grid;
-      margin: 5% 5%;
-    }
-    .grid {
-      padding: 5% 10%;
-    }
-    .grid1 {
-      background-color: #fff;
-      border-radius: 10px 10px 0 0;
-    }
-    .grid1 > p {
-      font-size: 0.8em;
-      line-height: 2em;
-      color: hsl(179, 62%, 43%)
-    }
-    .grid2 {
-      background-color: #2BB3B1;
-      padding-bottom: 5%;
-    }
-    .priceAndMonth {
-      display: flex;
-      padding: 0;
-      margin-bottom: 25px;
-    }
-    .price {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #fff;
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-    .perMonth {
-      color:rgba(255, 255, 255, 0.5);
-      margin-left: 10px;
-    }
-    .catchPhraseGrid2 {
-      color:rgba(255, 255, 255, 0.8);
-      margin-top: -20px;
-    }
-    .centerBtn {
-      text-align: center;
-    }
-    button {
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.8);
-      background-color: #BFDF32;
-      padding: 15px 40%;
-      border: none;
-      border-radius: 5px;
-      box-shadow: 0px 5px 7px 3px rgba(0, 0, 0, 0.1);
-      margin-top: 15px;
-      margin-bottom: 10px;
-    }
-    .grid3 {
-      background-color: #4ABEBD;
-      border-radius: 0 0 10px 10px;
-    }
-    ul {
-      list-style-type: none;
+    html {
       font-size: 14px;
-      color: rgba(255, 255, 255, 0.7);
-      line-height: 20px;
-      padding: 0;
     }
-    footer {
-      position: fixed;
-      bottom: 0;
-    }
-    .attribution {
-      font-size: 11px; text-align: center;
-    }
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
+    .gg-shopping-cart {
+      display: block;
+      box-sizing: border-box;
+      position: relative;
+      transform: scale(var(--ggs,1));
+      width: 20px;
+      height: 21px;
+      background:
+        linear-gradient(
+          to left,currentColor 12px,
+          transparent 0)
+          no-repeat -1px 6px/18px 2px,
+        linear-gradient(
+          to left,currentColor 12px,
+          transparent 0)
+          no-repeat 6px 14px/11px 2px,
+        linear-gradient(
+          to left,currentColor 12px,
+          transparent 0)
+          no-repeat 0 2px/4px 2px,
+        radial-gradient(
+          circle,currentColor 60%,
+          transparent 40%)
+          no-repeat 12px 17px/4px 4px,
+        radial-gradient(
+          circle,currentColor 60%,
+          transparent 40%)
+          no-repeat 6px 17px/4px 4px
+  }
+  .gg-shopping-cart::after, .gg-shopping-cart::before {
+    content: "";
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    width: 2px;
+    height: 14px;
+    background: currentColor;
+    top: 2px;
+    left: 4px;
+    transform: skew(12deg)
+  }
+  .gg-shopping-cart::after {
+    height: 10px;
+    top: 6px;
+    left: 16px;
+    transform: skew(-12deg)
+  }
+  body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: hsl(30, 38%, 92%);
+  }
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 95%;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  .container__pic {
+    border-radius: 10px 10px 0 0;
+  }
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+  }
+  .imgMobile {
+    border-radius: 10px 10px 0 0;
+  }
+  .imgDesktop {
+    display: none;
+    border-radius: 10px 0 0 10px;
+  }
+  .container__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5% 10% 8%;
+    border-radius: 0 0 20px 20px;
+  }
+  .type {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    color: hsl(228, 12%, 48%);
+    margin: 0;
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1.8rem;
+  }
+  .descriptionProduct {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: hsl(228, 12%, 48%);
+    margin: 0;
+  }
+  .prices {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: -10px;
+  }
+  .newPrice {
+    font-family: 'Fraunces', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: hsl(158, 36%, 37%);
+  }
+  .oldPrice {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-decoration: line-through;
+    color: hsl(158, 36%, 37%);
+    margin-left: 15px;
+  }
+  .posBtn {
+    text-align: center;
+  }
+  button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-weight: 700;
+    color: #fff;
+    background-color: hsl(158, 36%, 37%);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+  }
+  button:hover {
+    background-color: rgb(0, 60, 0);
+  }
+  .centeredBtnText {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  .attribution {
+    position: fixed;
+    bottom: 0;
+    font-size: 11px; text-align: center;
+    margin-top: 25px;
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+  
+@media (min-width: 800px) {
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    max-width: 80%;
+  }
+  .container__pic {
+    width: auto;
+    height: auto;
+  }
+  .imgMobile {
+    display: none;
+  }
+  .imgDesktop {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+  }
+  .container__description {
+    justify-content: space-between;
+  border-radius: 0 20px 20px 0;
+  }
+}
 
-    @media (min-width: 1000px) {
-      .mainGrid {
-        grid-template-areas: "a a" "b c";
-        grid-template-columns: 1fr 1fr;
-        max-width: 50%;
-        margin: auto;
-      }
-      .grid1 {
-        grid-area: a;
-      }
-      .grid2 {
-        grid-area: b;
-        border-bottom-left-radius: 10px;
-      }
-      .grid3 {
-        grid-area: c;
-        border-radius: 0 0 10px 0;
-      }
+  @media (min-width: 1300px) {
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      max-width: 40%;
     }
+    .container__pic {
+      width: auto;
+      height: auto;
+    }
+    .imgMobile {
+      display: none;
+    }
+    .imgDesktop {
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .container__description {
+      justify-content: space-between;
+    border-radius: 0 20px 20px 0;
+    }
+  }
   </style>
 </head>
-
 <body>
-  <div class="mainGrid">
-    <div class="grid grid1">
-      <h1>Join our community</h1>
-
-      <h2>30-day, hassle-free money back guarantee</h2>
-      <p>Gain access to our full library of tutorials along with expert code reviews. Perfect for any developers who are serious about honing their skills.</p>
+  <div class="wrapper">
+  <div class="container">
+    <div class="container__pic">
+      <img src="https://zupimages.net/up/22/34/j2qz.jpg" class="imgMobile"><img src="https://zupimages.net/up/22/34/hqg8.jpg" class="imgDesktop">
     </div>
-
-    <div class="grid grid2">
-      <h3>Monthly Subscription</h3>
-
-      <div class="priceAndMonth"><p class="price">&dollar;29</p><p class="perMonth"> per month</p></div>
-    
-      <p class="catchPhraseGrid2">Full access for less than &dollar;1 a day</p>
-    
-      <div class="centerBtn"><button>Sign Up</button></div>
+    <div class="container__description">
+      <p class="type">Perfume</p>
+      <h1>Gabrielle Essence Eau De Parfum</h1>
+      <p class="descriptionProduct">A floral, solar and voluptuous interpretation composed by Olivier Polge, 
+        Perfumer-Creator for the House of CHANEL.</p>
+        <div class="prices"><p class="newPrice">$149.99</p>
+        <p class="oldPrice">$169.99</p></div>
+        <div class="posBtn"><button><div class="centeredBtnText"><i class="gg-shopping-cart"></i>Add to Cart</div></button></div>
     </div>
-
-    <div class="grid grid3">
-
-      <h3>Why Us</h3>
-
-      <ul>
-        <li>Tutorials by industry experts</li>
-        <li>Peer &amp; expert code review</li>
-        <li>Coding exercises</li>
-        <li>Access to our GitHub repos</li>
-        <li>Community forum</li>
-        <li>Flashcard decks</li>
-        <li>New videos every week</li>
-      </ul>
-    </div>
-  </div>
+  </div></div>
   
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="https://www.frontendmentor.io/profile/MrFougasse">harderth</a>.
-    </p>
-  </footer>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/MrFougasse">Harderth</a>.
+  </div>
 </body>
 </html>
