@@ -4,175 +4,140 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 
+  <link href="index.css" type="text/css" rel="stylesheet">
+
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   
-  <title>Frontend Mentor | Single Price Grid Component</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+  <title>Frontend Mentor | E-commerce product page</title>
 
-    body {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      font-family: 'Karla', sans-serif;
-      font-size: 16px;
-      background-color: hsl(204, 43%, 93%);
-    }
-    h1 {
-      font-size: 1.3em;
-      color: hsl(179, 62%, 43%)
-    }
-    h2 {
-      font-size: 1em;
-      color: hsl(71, 73%, 54%);
-    }
-    h3 {
-      font-size: 1em;
-      font-weight: 700;
-      color: rgb(255, 255, 255);
-    }
-    .mainGrid {
-      display: grid;
-      margin: 5% 5%;
-    }
-    .grid {
-      padding: 5% 10%;
-    }
-    .grid1 {
-      background-color: #fff;
-      border-radius: 10px 10px 0 0;
-    }
-    .grid1 > p {
-      font-size: 0.8em;
-      line-height: 2em;
-      color: hsl(179, 62%, 43%)
-    }
-    .grid2 {
-      background-color: #2BB3B1;
-      padding-bottom: 5%;
-    }
-    .priceAndMonth {
-      display: flex;
-      padding: 0;
-      margin-bottom: 25px;
-    }
-    .price {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #fff;
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-    .perMonth {
-      color:rgba(255, 255, 255, 0.5);
-      margin-left: 10px;
-    }
-    .catchPhraseGrid2 {
-      color:rgba(255, 255, 255, 0.8);
-      margin-top: -20px;
-    }
-    .centerBtn {
-      text-align: center;
-    }
-    button {
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.8);
-      background-color: #BFDF32;
-      padding: 15px 40%;
-      border: none;
-      border-radius: 5px;
-      box-shadow: 0px 5px 7px 3px rgba(0, 0, 0, 0.1);
-      margin-top: 15px;
-      margin-bottom: 10px;
-    }
-    .grid3 {
-      background-color: #4ABEBD;
-      border-radius: 0 0 10px 10px;
-    }
-    ul {
-      list-style-type: none;
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.7);
-      line-height: 20px;
-      padding: 0;
-    }
-    footer {
-      position: fixed;
-      bottom: 0;
-    }
-    .attribution {
-      font-size: 11px; text-align: center;
-    }
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-
-    @media (min-width: 1000px) {
-      .mainGrid {
-        grid-template-areas: "a a" "b c";
-        grid-template-columns: 1fr 1fr;
-        max-width: 50%;
-        margin: auto;
-      }
-      .grid1 {
-        grid-area: a;
-      }
-      .grid2 {
-        grid-area: b;
-        border-bottom-left-radius: 10px;
-      }
-      .grid3 {
-        grid-area: c;
-        border-radius: 0 0 10px 0;
-      }
-    }
-  </style>
 </head>
-
 <body>
-  <div class="mainGrid">
-    <div class="grid grid1">
-      <h1>Join our community</h1>
+<main>
+  <header>
+    <div id="scrollingMenuBtn"></div>
+    <h1>sneakers</h1>
+    <ul id="scrollingMenuUlDesktop">
+      <li>Collections</li>
+      <li>Men</li>
+      <li>Women</li>
+      <li>About</li>
+      <li>Contact</li>
+    </ul>
+    <img src="images/icon-cart.svg" id="cartIcon" class="headerImg">
+    <div id="articlesNotification"><p id="numberOfArticlesNotification"></p></div>
+    <img src="images/image-avatar.png" id="avatarImg" class="headerImg">
+  </header>
 
-      <h2>30-day, hassle-free money back guarantee</h2>
-      <p>Gain access to our full library of tutorials along with expert code reviews. Perfect for any developers who are serious about honing their skills.</p>
+  <div id="cartList">
+    <div id="cartTitleWrapper">
+      <p id="cartTitle">Cart</p>
     </div>
-
-    <div class="grid grid2">
-      <h3>Monthly Subscription</h3>
-
-      <div class="priceAndMonth"><p class="price">&dollar;29</p><p class="perMonth"> per month</p></div>
-    
-      <p class="catchPhraseGrid2">Full access for less than &dollar;1 a day</p>
-    
-      <div class="centerBtn"><button>Sign Up</button></div>
+    <div id="articlesInTheCartList">
+      <div id="articleDetails">
+        <img src="images/image-product-1-thumbnail.jpg" id="articleListThumbnail">
+        <div id="nameAndPriceDetails">
+          <p id="titleDetails">Autumn Limited Edition Sneakers</p>
+          <div>
+            <p id="priceDetails"></p>
+            <p id="totalPrice"></p>
+          </div>
+        </div>
+        <img src="images/icon-delete.svg" id="deleteIcon">
+      </div>
+    <button id="checkoutBtn">Checkout</button>
     </div>
+    <p id="emptyCartCatchPhrase" class="active">Your cart is empty.</p>
+  </div>
 
-    <div class="grid grid3">
-
-      <h3>Why Us</h3>
-
-      <ul>
-        <li>Tutorials by industry experts</li>
-        <li>Peer &amp; expert code review</li>
-        <li>Coding exercises</li>
-        <li>Access to our GitHub repos</li>
-        <li>Community forum</li>
-        <li>Flashcard decks</li>
-        <li>New videos every week</li>
+  <div id="scrollingMenu">
+    <div id="whiteMenu">
+      <img src="images/icon-close.svg" id="closeMenuIcon">
+      <ul id="scrollingMenuUl">
+        <li>Collections</li>
+        <li>Men</li>
+        <li>Women</li>
+        <li>About</li>
+        <li>Contact</li>
       </ul>
     </div>
   </div>
-  
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="https://www.frontendmentor.io/profile/MrFougasse">harderth</a>.
-    </p>
-  </footer>
+
+  <div id="allImages">
+    <div id="articleImages">
+      <img src="images/image-product-1.jpg" id="img1" class="imgProduct">
+      <img src="images/image-product-2.jpg" id="img2" class="imgProduct">
+      <img src="images/image-product-3.jpg" id="img3" class="imgProduct">
+      <img src="images/image-product-4.jpg" id="img4" class="imgProduct">
+
+      <a id="prevBtn">&#10094;</a>
+      <a id="nextBtn">&#10095;</a>      
+    </div>
+    
+    <div id="articleImagesThumbnail">
+      <img src="images/image-product-1-thumbnail.jpg" class="imgProductThumbnail">
+      <img src="images/image-product-2-thumbnail.jpg" class="imgProductThumbnail">
+      <img src="images/image-product-3-thumbnail.jpg" class="imgProductThumbnail">
+      <img src="images/image-product-4-thumbnail.jpg" class="imgProductThumbnail">
+    </div>
+  </div>
+
+  <div id="allImagesFocus">
+    <div id="articleImagesFocus">
+      <img src="images/image-product-1.jpg" id="img1Focus" class="imgProductFocus">
+      <img src="images/image-product-2.jpg" id="img2Focus" class="imgProductFocus">
+      <img src="images/image-product-3.jpg" id="img3Focus" class="imgProductFocus">
+      <img src="images/image-product-4.jpg" id="img4Focus" class="imgProductFocus">
+
+      <img src="images/icon-close.svg" id="closeImagesFocus">
+      <a id="prevBtnFocus">&#10094;</a>
+      <a id="nextBtnFocus">&#10095;</a>      
+    </div>
+    
+    <div id="articleImagesThumbnailFocus">
+      <img src="images/image-product-1-thumbnail.jpg" class="imgProductThumbnailFocus">
+      <img src="images/image-product-2-thumbnail.jpg" class="imgProductThumbnailFocus">
+      <img src="images/image-product-3-thumbnail.jpg" class="imgProductThumbnailFocus">
+      <img src="images/image-product-4-thumbnail.jpg" class="imgProductThumbnailFocus">
+    </div>
+  </div>
+
+  <div id="bodyWrapper">
+    <h2>Sneaker Company</h2>
+    <h3>Fall Limited Edition Sneakers</h3>
+
+    <p id="description">These low-profile sneakers are your perfect casual wear companion. Featuring a 
+      durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+
+    <div id="price">
+      <div id="actualPriceAndDiscountInline">
+        <p id="actualPrice">$125.00</p>
+        <p id="discount">50%</p>
+      </div>
+      <p id="normalPrice">$250.00</p>
+    </div>
+
+    <div id="articlesAndCartBtnInline">
+      <div id="numberOfArticles">
+        <button id="lessArticles" class="quantity">–</button>
+        <p id="numberOfArticlesSelected"></p>
+        <button id="moreArticles" class="quantity">+</button>
+      </div>
+
+      <button id="addToCartBtn"><img src="images/icon-cart.svg" id="cartIconBtn">Add to cart</button>
+    </div>
+  </div>
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Harderth</a>.
+  </div>
+</main>
 </body>
+
+<script type="text/javascript" src="index.js"></script>
+
 </html>
