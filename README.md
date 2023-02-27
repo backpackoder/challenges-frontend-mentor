@@ -1,4 +1,4 @@
-# challenges-frontend-mentor
+# My challenges on Frontendmentor.io
 
 HERE THE LINKS OF THE CHALLENGES :
 1. QR-code-component :
